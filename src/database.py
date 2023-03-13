@@ -10,7 +10,7 @@ class Punto:
     def __str__(self): # Método str para imprimir lo que me piden
         return "({}, {})".format(self.x, self.y)
     
-    def cuadrante(self):
+    def cuadrante(self): # Método para determinar el cuadrante al que pertenece el punto
         if self.x > 0 and self.y > 0:
             print("El punto {} pertenece al primer cuadrante del plano cartesiano.".format(self))
         elif self.x < 0 and self.y > 0:
@@ -22,28 +22,29 @@ class Punto:
         else:
             print("El punto {} Es el origen del plano cartesiano.".format(self))
     
-    def vector(self, punto):        
+    def vector(self, punto): # Método para calcular el vector entre dos puntos       
         print("El vector resultante entre {} y {} = ({}, {})".format(self, punto, punto.x - self.x, punto.y - self.y))
     
-    def distancia(self, punto):
+    def distancia(self, punto): # Método para calcular la distancia entre dos puntos
         distancia = math.sqrt((punto.x - self.x)**2 + (punto.y - self.y)**2)
         print("La distancia entre los puntos {} y {} = {}".format(self, punto, distancia))
 
 
 class Rectangulo:
-    def __init__(self, puntoInicial = Punto(), puntoFinal = Punto()):
+    # Creo los métodos de la clase
+    def __init__(self, puntoInicial = Punto(), puntoFinal = Punto()): # Constructor
         self.puntoInicial = puntoInicial
         self.puntoFinal = puntoFinal
 
-    def base(self):
+    def base(self): # Método para calcular la base del rectángulo
         self.base = abs(self.puntoFinal.x - self.puntoInicial.x)
         print("La base del réctangulo es {}.".format(self.base))
 
-    def altura(self):
+    def altura(self): # Método para calcular la altura del rectángulo
         self.altura = abs(self.puntoFinal.y - self.puntoInicial.y)
         print("La altura del réctangulo es {}.".format(self.altura))
 
-    def area(self):
+    def area(self): # Método para calcular el área del rectángulo
         self.base = abs(self.puntoFinal.x - self.puntoInicial.x)
         self.altura = abs(self.puntoFinal.y - self.puntoInicial.y)
         self.area = self.base * self.altura
@@ -62,23 +63,26 @@ D = Punto(0, 0)
 A.cuadrante()
 C.cuadrante()
 D.cuadrante()
+print("\n")
 
 # Consulta los vectores AB y BA
 
 A.vector(B)
 B.vector(A)
+print("\n")
 
 # Consulta la distancia entre los puntos 'A y B' y 'B y A'
 
 A.distancia(B)
-A.distancia(A)
+B.distancia(A)
+print("\n")
 
 # Determina cual de los 3 puntos A, B o C, se encuentra más lejos del origen, punto (0,0)
 
 A.distancia(Punto(0, 0))
 B.distancia(Punto(0, 0))
 C.distancia(Punto(0, 0))
-
+print("\n")
 
 # Crea un rectángulo utilizando los puntos A y B
 
