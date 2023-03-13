@@ -27,5 +27,5 @@ class TestDatabase(unittest.TestCase):
         self.assertEqual(db.Rectangulo(db.Punto(2, 3), db.Punto(5, 5)).area(), None)
 
 
-# if __name__ == '__main__':
-#     unittest.main()
+if __name__ == '__main__':
+    unittest.main()
